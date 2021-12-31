@@ -19,6 +19,8 @@
 
  - php artisan migrate
 
+- npm run watch
+
  - php artisan serve
 
  # Database configuration

@@ -10,6 +10,12 @@
                                                 <div class="row">
                                                         <div class="col-12 mb-2">
                                                                 <div class="form-group">
+                                                                        <label>Nome</label>
+                                                                        <input type="text" class="form-control" v-model="client.nome">
+                                                                </div>
+                                                        </div>
+                                                        <div class="col-12 mb-2">
+                                                                <div class="form-group">
                                                                         <label>Cpf</label>
                                                                         <input type="text" class="form-control" v-model="client.cpf">
                                                                 </div>
@@ -49,6 +55,7 @@ export default {
         data(){
                 return {
                         client:{
+                                nome:"",
                                 cpf:"",
                                 email:"",
                                 telefone:"",

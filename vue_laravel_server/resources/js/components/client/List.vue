@@ -14,6 +14,7 @@
                                                     <thead>
                                                         <tr>
                                                                 <th>ID</th>
+                                                                <th>Nome</th>
                                                                 <th>Cpf</th>
                                                                 <th>Email</th>
                                                                 <th>Telefone</th>
@@ -23,6 +24,7 @@
                                                     <tbody v-if="clients.length > 0">
                                                             <tr v-for="(client, key) in clients" :key="key">
                                                                     <td>{{ client.id }}</td>
+                                                                    <td>{{ client.nome }}</td>
                                                                     <td>{{ client.cpf }}</td>
                                                                     <td>{{ client.email }}</td>
                                                                     <td>{{ client.telefone }}</td>

@@ -75,11 +75,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "add-client",
   data: function data() {
     return {
       client: {
+        nome: "",
         cpf: "",
         email: "",
         telefone: "",
@@ -988,6 +995,34 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Nome")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.client.nome,
+                          expression: "client.nome",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.client.nome },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.client, "nome", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "col-12 mb-2" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", [_vm._v("Cpf")]),

@@ -75,11 +75,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "update-client",
   data: function data() {
     return {
       client: {
+        nome: "",
         cpf: "",
         email: "",
         telefone: "",
@@ -103,10 +110,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 2;
                 return _this.axios.get("/api/client/".concat(_this.$route.params.id)).then(function (response) {
                   var _response$data = response.data,
+                      nome = _response$data.nome,
                       cpf = _response$data.cpf,
                       email = _response$data.email,
                       telefone = _response$data.telefone,
                       endereco = _response$data.endereco;
+                  _this.client.nome = nome;
                   _this.client.cpf = cpf;
                   _this.client.email = email;
                   _this.client.telefone = telefone;
@@ -1023,6 +1032,34 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Nome")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.client.nome,
+                          expression: "client.nome",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.client.nome },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.client, "nome", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "col-12 mb-2" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", [_vm._v("Cpf")]),
