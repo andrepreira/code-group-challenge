@@ -9,7 +9,7 @@
 
  You can run mysql with docker compose
  
- - for this: run docker-composer up -d 
+ - for this run: docker-composer up -d 
 
  # Run this project
 
@@ -27,21 +27,21 @@
 
   - change configuration below to your database credentials
 
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=<your_database_name>
-    DB_USERNAME=<your_db_username>
-    DB_PASSWORD=<your_db_password>
+    DB_CONNECTION=mysql <br />
+    DB_HOST=127.0.0.1 <br />
+    DB_PORT=3306 <br />
+    DB_DATABASE=<your_database_name> <br />
+    DB_USERNAME=<your_db_username> <br />
+    DB_PASSWORD=<your_db_password> <br />
 
     - if you use docker-composer.yml, you may use this
     
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=code_group_challenge
-    DB_USERNAME=root
-    DB_PASSWORD=toor
+    DB_CONNECTION=mysql <br /> 
+    DB_HOST=127.0.0.1 <br />
+    DB_PORT=3306 <br />
+    DB_DATABASE=code_group_challenge <br />
+    DB_USERNAME=root <br />
+    DB_PASSWORD=toor <br />
 
 
  # Generate fake clients
