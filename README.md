@@ -1,3 +1,54 @@
+# Tecnologies for run this project
+ - mysql leatest version
+
+ - php 8.0.X
+
+ - laravel leatest version
+
+ - vue leatest version.
+
+ You can run mysql with docker compose
+ 
+ - for this: run docker-composer up -d 
+
+ # Run this project
+
+ - cd vue_laravel_server
+
+ - composer install
+
+ - php artisan migrate
+
+ - php artisan serve
+
+ # Database configuration
+
+  - copy and paste .env.exemple and rename to .env
+
+  - change configuration below to your database credentials
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=<your_database_name>
+    DB_USERNAME=<your_db_username>
+    DB_PASSWORD=<your_db_password>
+
+    - if you use docker-composer.yml, you may use this
+    
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=code_group_challenge
+    DB_USERNAME=root
+    DB_PASSWORD=toor
+
+
+ # Generate fake clients
+
+ - php artisan db:seed 
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
