@@ -1,3 +1,30 @@
+
+<script>
+export default {
+        name: "add-client",
+        data(){
+                return {
+                        client:{
+                                nome:"",
+                                cpf:"",
+                                email:"",
+                                telefone:"",
+                                endereco:""
+                        }
+                }
+        },
+        methods:{
+                async create(){
+                        await this.axios.post('/api/client', this.client).then(response=>{
+                                this.$router.push({name: "clientList"})
+                        }).catch(error=>{
+                                console.log(error)
+                        })
+                }
+        }
+}
+</script>
+
 <template>
         <div class="row">
                 <div class="col-12">
@@ -8,6 +35,12 @@
                                 <div class="card-body">
                                         <form @submit.prevent="create">
                                                 <div class="row">
+                                                        <div class="col-12 mb-2">
+                                                                <div class="form-group">
+                                                                        <label>Nome</label>
+                                                                        <input type="text" class="form-control" v-model="client.nome">
+                                                                </div>
+                                                        </div>
                                                         <div class="col-12 mb-2">
                                                                 <div class="form-group">
                                                                         <label>Cpf</label>
@@ -42,28 +75,3 @@
                 </div>
         </div>
 </template>
-
-<script>
-export default {
-        name: "add-client",
-        data(){
-                return {
-                        client:{
-                                cpf:"",
-                                email:"",
-                                telefone:"",
-                                endereco:""
-                        }
-                }
-        },
-        methods:{
-                async create(){
-                        await this.axios.post('/api/client', this.client).then(response=>{
-                                this.$router.push({name: "clientList"})
-                        }).catch(error=>{
-                                console.log(error)
-                        })
-                }
-        }
-}
-</script>

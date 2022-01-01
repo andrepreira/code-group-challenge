@@ -1,3 +1,7 @@
+<script>
+        export default {}
+</script>
+
 <template>
         <main>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -6,7 +10,7 @@
                             <div class="collapse navbar-collapse">
                                     <div class="navbar-nav">
                                         <router-link exact-active-class="active" to="/" class="nav-item nav-link">Home</router-link>
-                                        <router-link exact-active-class="active" to="/client" class="nav-item nav-link">Client</router-link>
+                                        <router-link exact-active-class="active" to="/client" class="nav-item nav-link">Clients</router-link>
                                     </div>
                             </div>
                         </div>
@@ -16,7 +20,3 @@
                 </div>
         </main>
 </template>
-
-<script>
-        export default {}
-</script>

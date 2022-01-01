@@ -14,8 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all( ['id', 'cpf', 'email', 'telefone', 'endereco']);
-        return response()->json($clients);
+        $clients = Client::paginate(9);
+        return response()->json($clients, 200);
     }
 
         /**
@@ -74,27 +74,5 @@ class ClientController extends Controller
             'message' => 'Client Deleted Successfully!!'
         ]);
     }
-
-    // // /**
-    // //  * Show the form for creating a new resource.
-    // //  *
-    // //  * @return \Illuminate\Http\Response
-    // //  */
-    // // public function create()
-    // // {
-    // //     //
-    // // }
-
-
-    // // /**
-    // //  * Show the form for editing the specified resource.
-    // //  *
-    // //  * @param  \App\Models\Client  $client
-    // //  * @return \Illuminate\Http\Response
-    // //  */
-    // // public function edit(Client $client)
-    // // {
-    // //     //
-    // // }
 
 }
