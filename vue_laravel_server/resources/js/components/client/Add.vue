@@ -1,3 +1,30 @@
+
+<script>
+export default {
+        name: "add-client",
+        data(){
+                return {
+                        client:{
+                                nome:"",
+                                cpf:"",
+                                email:"",
+                                telefone:"",
+                                endereco:""
+                        }
+                }
+        },
+        methods:{
+                async create(){
+                        await this.axios.post('/api/client', this.client).then(response=>{
+                                this.$router.push({name: "clientList"})
+                        }).catch(error=>{
+                                console.log(error)
+                        })
+                }
+        }
+}
+</script>
+
 <template>
         <div class="row">
                 <div class="col-12">
@@ -48,29 +75,3 @@
                 </div>
         </div>
 </template>
-
-<script>
-export default {
-        name: "add-client",
-        data(){
-                return {
-                        client:{
-                                nome:"",
-                                cpf:"",
-                                email:"",
-                                telefone:"",
-                                endereco:""
-                        }
-                }
-        },
-        methods:{
-                async create(){
-                        await this.axios.post('/api/client', this.client).then(response=>{
-                                this.$router.push({name: "clientList"})
-                        }).catch(error=>{
-                                console.log(error)
-                        })
-                }
-        }
-}
-</script>

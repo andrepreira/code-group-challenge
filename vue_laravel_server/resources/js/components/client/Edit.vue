@@ -1,3 +1,47 @@
+
+<script>
+export default {
+        name: "update-client",
+        data(){
+                return {
+                        client:{
+                                nome:"",
+                                cpf:"",
+                                email:"",
+                                telefone:"",
+                                endereco:"",
+                                _method:"patch"
+                        }
+                }
+        },
+        mounted(){
+            this.showClient()
+        }
+        ,
+        methods:{
+                async showClient(){
+                        await this.axios.get(`/api/client/${this.$route.params.id}`).then(response=>{
+                                const {nome,  cpf, email, telefone, endereco } = response.data
+                                this.client.nome = nome
+                                this.client.cpf = cpf
+                                this.client.email = email
+                                this.client.telefone = telefone
+                                this.client.endereco = endereco
+                        }).catch(error=>{
+                                console.log(error)
+                        })
+                },
+            async update(){
+                    await this.axios.post(`/api/client/${this.$route.params.id}`, this.client).then(response=>{
+                        this.$router.push({name: "clientList"})
+                    }).catch(error=>{
+                            console.log(error)
+                    })
+            }
+        }
+}
+</script>
+
 <template>
         <div class="row">
                 <div class="col-12">
@@ -48,46 +92,3 @@
                 </div>
         </div>
 </template>
-
-<script>
-export default {
-        name: "update-client",
-        data(){
-                return {
-                        client:{
-                                nome:"",
-                                cpf:"",
-                                email:"",
-                                telefone:"",
-                                endereco:"",
-                                _method:"patch"
-                        }
-                }
-        },
-        mounted(){
-            this.showClient()
-        }
-        ,
-        methods:{
-                async showClient(){
-                        await this.axios.get(`/api/client/${this.$route.params.id}`).then(response=>{
-                                const {nome,  cpf, email, telefone, endereco } = response.data
-                                this.client.nome = nome
-                                this.client.cpf = cpf
-                                this.client.email = email
-                                this.client.telefone = telefone
-                                this.client.endereco = endereco
-                        }).catch(error=>{
-                                console.log(error)
-                        })
-                },
-            async update(){
-                    await this.axios.post(`/api/client/${this.$route.params.id}`, this.client).then(response=>{
-                        this.$router.push({name: "clientList"})
-                    }).catch(error=>{
-                            console.log(error)
-                    })
-            }
-        }
-}
-</script>

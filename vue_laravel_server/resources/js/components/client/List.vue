@@ -1,3 +1,48 @@
+<script>
+    import clientsPagination from './pagination.vue'
+    export default {
+            components: {
+                clientsPagination
+            },
+            name: "clients",
+            data(){
+                    return {
+                            clients: {},
+                            pagination: {}
+                    }
+            },
+            mounted(){
+                this.getClients()
+            },
+            methods:{
+                navigate (page) {
+                   this.axios.get('/api/client?page='+page).then(response=>{
+                                this.clients = response.data.data
+                                this.pagination = response.data
+                            })
+                },
+                async getClients(){
+                        await this.axios.get('/api/client').then(response=>{
+                                this.clients = response.data.data
+                                this.pagination = response.data
+                        }).catch(error=>{
+                                console.log(error)
+                                this.clients = []
+                        })
+                },
+                deleteClient(id){
+                        if(confirm("Are you sure to delete this client ?")){
+                                this.axios.delete(`/api/client/${id}`).then(response=>{
+                                        this.getClients()
+                                }).catch(error=>{
+                                        console.log(error)
+                                })
+                        }
+                }
+            }
+    }
+</script>
+
 <template>
         <div class="row">
                 <div class="col-12 mb-2 text-end">
@@ -45,38 +90,10 @@
                                 </div>
                         </div>
                 </div>
+                <div class="text-center">
+                        <clients-pagination :source="pagination" @navigate="navigate"></clients-pagination>
+                </div>
         </div>
 </template>
 
-<script>
-export default {
-        name: "clients",
-        data(){
-                return {
-                        clients: []
-                }
-        },
-        mounted(){
-            this.getClients()
-        },
-        methods:{
-            async getClients(){
-                    await this.axios.get('/api/client').then(response=>{
-                            this.clients = response.data
-                    }).catch(error=>{
-                            console.log(error)
-                            this.clients = []
-                    })
-            },
-            deleteClient(id){
-                    if(confirm("Are you sure to delete this client ?")){
-                            this.axios.delete(`/api/client/${id}`).then(response=>{
-                                    this.getClients()
-                            }).catch(error=>{
-                                    console.log(error)
-                            })
-                    }
-            }
-        }
-}
-</script>
+
