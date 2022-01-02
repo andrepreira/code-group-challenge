@@ -19,7 +19,7 @@ class ClientTableSeeder extends Seeder
         for ($i=0; $i<50; $i++) {
             DB::table('clients')->insert([
                 'nome' => $faker->name,
-                'CPF' => $faker->unique()->cpf,
+                'cpf' => $faker->unique()->cpf,
                 'email' => $faker->unique()->safeEmail(),
                 'telefone' => sprintf('(0%s) %s', $faker->areaCode, $faker->landline),
                 'endereco' => $faker->address

@@ -1,11 +1,11 @@
 # Tecnologies for run this project
  - mysql leatest version
 
- - php 8.0.X
+ - php 8.0.14
 
- - laravel leatest version
+ - Laravel Framework 8.77.1
 
- - vue leatest version.
+ - Vue 2.6.14.
 
  You can run mysql with docker compose
  
@@ -16,6 +16,8 @@
  - cd vue_laravel_server
 
  - composer install
+
+ - npm install
 
  - php artisan migrate
 
@@ -50,6 +52,13 @@
 
  - php artisan db:seed 
 
+# Inspect the routes API Laravel
+
+- php artisan route:list
+
+# Run the tests
+
+- php artisan test
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
