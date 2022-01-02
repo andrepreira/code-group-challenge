@@ -1283,7 +1283,9 @@ var render = function () {
           "li",
           {
             staticClass: "page-item",
-            class: { disabled: _vm.source.current_page == _vm.last_page },
+            class: {
+              disabled: _vm.source.current_page == this.source.last_page,
+            },
           },
           [
             _c(

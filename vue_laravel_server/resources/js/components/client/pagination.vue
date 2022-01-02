@@ -38,7 +38,7 @@
              <li class="page-item" :class="{active: source.current_page == page}" v-for="page in pages" :key="page">
                 <a class="page-link" href="#" @click="navigate($event, page)">{{  page }}</a>
             </li>
-            <li class="page-item" :class="{disabled: source.current_page == last_page}">
+            <li class="page-item" :class="{disabled: source.current_page == this.source.last_page}">
                 <a class="page-link" href="#" @click="nextPrev($event, source.current_page+1)" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
